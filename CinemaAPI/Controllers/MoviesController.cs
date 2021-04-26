@@ -13,7 +13,7 @@ namespace CinemaAPI.Controllers
     public class MoviesController : Controller
     {
 
-        private List<Movie> movies = new List<Movie>
+        public static List<Movie> movies = new List<Movie>
         {
             new Movie(){ Id = 0, Name = "Mission imposible", Language="english"},
             new Movie(){ Id = 1, Name = "the matrix", Language="english"},
