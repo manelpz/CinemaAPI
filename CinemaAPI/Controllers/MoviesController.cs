@@ -26,6 +26,7 @@ namespace CinemaAPI.Controllers
 
         }
 
+        [HttpPost]
         public void Post(Movie movie) {
             movies.Add(movie);
         }
