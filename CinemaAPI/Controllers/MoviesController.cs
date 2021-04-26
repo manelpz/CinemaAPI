@@ -25,6 +25,10 @@ namespace CinemaAPI.Controllers
             return movies;
 
         }
+
+        public void Post(Movie) {
+
+        }
         
     }
 }
