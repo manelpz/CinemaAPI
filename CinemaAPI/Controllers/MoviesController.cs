@@ -26,8 +26,8 @@ namespace CinemaAPI.Controllers
 
         }
 
-        public void Post(Movie) {
-
+        public void Post(Movie movie) {
+            movies.Add(movie);
         }
         
     }
