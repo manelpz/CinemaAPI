@@ -28,11 +28,11 @@ namespace CinemaAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<CinemaDBContext>(option => option.UseSqlServer());
+            services.AddDbContext<CinemaDBContext>(option => option.UseSqlServer(@"Data Source=YourSErver; Initial Catalog=CinemaDB; Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CinemaDBContext dBContext)
         {
             if (env.IsDevelopment())
             {
@@ -44,6 +44,8 @@ namespace CinemaAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            dBContext.Database.EnsureCreated();
 
             app.UseEndpoints(endpoints =>
             {
