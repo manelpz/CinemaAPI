@@ -16,7 +16,7 @@ namespace CinemaAPI.Controllers
 
         public MoviesController(CinemaDBContext dbContext)
         {
-
+            _dbContext = dbContext;
         }
         // GET: api/values
         [HttpGet]
