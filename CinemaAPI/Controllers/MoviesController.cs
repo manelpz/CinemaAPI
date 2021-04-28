@@ -37,8 +37,10 @@ namespace CinemaAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Movie movieObj)
         {
+            _dbContext.movies.Add(movieObj);
+            _dbContext.SaveChanges();
         }
 
         // PUT api/values/5
