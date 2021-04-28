@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CinemaAPI.Data;
 using CinemaAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,9 +23,9 @@ namespace CinemaAPI.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Movie> Get()
+        public IActionResult Get()
         {
-            return _dbContext.movies;
+            return Ok(_dbContext.movies);
         }
 
         // GET api/values/5
@@ -37,10 +38,11 @@ namespace CinemaAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Movie movieObj)
+        public IActionResult Post([FromBody] Movie movieObj)
         {
             _dbContext.movies.Add(movieObj);
             _dbContext.SaveChanges();
+            return StatusCode(StatusCodes.Status201Created);
         }
 
         // PUT api/values/5
