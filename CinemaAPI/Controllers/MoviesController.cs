@@ -30,10 +30,18 @@ namespace CinemaAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Movie Get(int id)
+        public IActionResult Get(int id)
         {
             var movie= _dbContext.movies.Find(id);
-            return movie;
+
+            if (movie == null)
+            {
+                return NotFound("No record found against this id");
+            }
+            else
+            {
+                return Ok(movie);
+            }
         }
 
         // POST api/values
@@ -53,7 +61,7 @@ namespace CinemaAPI.Controllers
 
             if (movie == null)
             {
-                return NotFound("Not record found against this id");
+                return NotFound("No record found against this id");
             }
             else
             {
