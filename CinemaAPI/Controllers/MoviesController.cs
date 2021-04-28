@@ -45,8 +45,12 @@ namespace CinemaAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Movie movieObj)
         {
+            var movie = _dbContext.movies.Find(id);
+            movie.Name = movieObj.Name;
+            movie.Language = movieObj.Language;
+            _dbContext.SaveChanges();
         }
 
         // DELETE api/values/5
