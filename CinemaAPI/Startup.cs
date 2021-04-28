@@ -30,11 +30,7 @@ namespace CinemaAPI
             services.AddControllers();
             services.AddDbContext<CinemaDBContext>(option =>
             option.UseSqlServer(@"Data Source=localhost,1433;Initial Catalog=CinemaDB;User Id=SA;Password=MiPassw0rd!1521;Integrated Security=false"));
-            //"DevConnection": "Server=localhost,1433;Database=TarjetaCreditoDB;User Id=sa;Password=myPassw0rd;MultipleActiveResultSets=True;"
-                             //"myCustomConnString": "Server=localhost,1433\\Catalog=myDatabase;Database=myDatabase;User=username;Password=MYSecurePWD;"
-
-
-
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
