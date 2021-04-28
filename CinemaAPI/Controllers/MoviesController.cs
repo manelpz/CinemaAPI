@@ -57,6 +57,9 @@ namespace CinemaAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var movie = _dbContext.movies.Find(id);
+            _dbContext.movies.Remove(movie);
+            _dbContext.SaveChanges();
         }
     }
 }
