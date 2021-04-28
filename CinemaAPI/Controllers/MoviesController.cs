@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CinemaAPI.Data;
+using CinemaAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,11 +19,12 @@ namespace CinemaAPI.Controllers
         {
             _dbContext = dbContext;
         }
+
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Movie> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _dbContext.movies;
         }
 
         // GET api/values/5
