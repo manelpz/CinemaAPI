@@ -31,7 +31,8 @@ namespace CinemaAPI.Controllers
         [HttpGet("{id}")]
         public Movie Get(int id)
         {
-            return _dbContext.movies.Find(id);
+            var movie= _dbContext.movies.Find(id);
+            return movie;
         }
 
         // POST api/values
