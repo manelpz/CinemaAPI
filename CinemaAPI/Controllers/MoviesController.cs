@@ -47,21 +47,38 @@ namespace CinemaAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Movie movieObj)
+        public IActionResult Put(int id, [FromBody] Movie movieObj)
         {
             var movie = _dbContext.movies.Find(id);
-            movie.Name = movieObj.Name;
-            movie.Language = movieObj.Language;
-            _dbContext.SaveChanges();
+
+            if (movie == null)
+            {
+                return NotFound("Not record found against this id");
+            }
+            else
+            {
+                movie.Name = movieObj.Name;
+                movie.Language = movieObj.Language;
+                _dbContext.SaveChanges();
+                return Ok("Record updated succefully");
+            }
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             var movie = _dbContext.movies.Find(id);
-            _dbContext.movies.Remove(movie);
-            _dbContext.SaveChanges();
+            if (movie == null)
+            {
+                return NotFound("No record found against this id");
+            }
+            else
+            {
+                _dbContext.movies.Remove(movie);
+                _dbContext.SaveChanges();
+                return Ok("Record deleted");
+            }
         }
     }
 }
