@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CinemaAPI.Data;
@@ -45,11 +46,31 @@ namespace CinemaAPI.Controllers
         }
 
         // POST api/values
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Post([FromBody] Movie movieObj)
         {
             _dbContext.movies.Add(movieObj);
             _dbContext.SaveChanges();
+            return StatusCode(StatusCodes.Status201Created);
+        }*/
+
+        // POST api/values
+        [HttpPost]
+        public IActionResult Post([FromForm] Movie movieObj)
+        {
+            var guid = Guid.NewGuid();
+            var filePath = Path.Combine("wwwroot",guid+".jpg");
+
+            if (movieObj.Image != null) {
+
+                var fileStream = new FileStream(filePath, FileMode.Create);
+                movieObj.Image.CopyTo(fileStream);
+            }
+            
+            movieObj.ImageUrl = filePath.Remove(0,7);
+            _dbContext.movies.Add(movieObj);
+            _dbContext.SaveChanges();
+
             return StatusCode(StatusCodes.Status201Created);
         }
 
