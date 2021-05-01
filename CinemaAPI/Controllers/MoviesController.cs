@@ -66,7 +66,7 @@ namespace CinemaAPI.Controllers
                 var fileStream = new FileStream(filePath, FileMode.Create);
                 movieObj.Image.CopyTo(fileStream);
             }
-            
+
             movieObj.ImageUrl = filePath.Remove(0,7);
             _dbContext.movies.Add(movieObj);
             _dbContext.SaveChanges();
@@ -76,7 +76,7 @@ namespace CinemaAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Movie movieObj)
+        public IActionResult Put(int id, [FromForm] Movie movieObj)
         {
             var movie = _dbContext.movies.Find(id);
 
@@ -86,6 +86,18 @@ namespace CinemaAPI.Controllers
             }
             else
             {
+
+                var guid = Guid.NewGuid();
+                var filePath = Path.Combine("wwwroot", guid + ".jpg");
+
+                if (movieObj.Image != null)
+                {
+
+                    var fileStream = new FileStream(filePath, FileMode.Create);
+                    movieObj.Image.CopyTo(fileStream);
+                    movieObj.ImageUrl = filePath.Remove(0, 7);  
+                }
+
                 movie.Name = movieObj.Name;
                 movie.Language = movieObj.Language;
                 movie.Rating = movieObj.Rating;
