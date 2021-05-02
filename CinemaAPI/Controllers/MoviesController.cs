@@ -95,7 +95,8 @@ namespace CinemaAPI.Controllers
 
                     var fileStream = new FileStream(filePath, FileMode.Create);
                     movieObj.Image.CopyTo(fileStream);
-                    movieObj.ImageUrl = filePath.Remove(0, 7);  
+                    movie.ImageUrl = filePath.Remove(0, 7);
+                    
                 }
 
                 movie.Name = movieObj.Name;
