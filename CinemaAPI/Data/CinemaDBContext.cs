@@ -12,5 +12,9 @@ namespace CinemaAPI.Data
         }
 
         public DbSet<Movie> movies { get; set; }
+
+        public DbSet<User> User { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }
