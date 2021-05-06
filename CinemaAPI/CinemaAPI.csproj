@@ -10,6 +10,7 @@
     <Folder Include="Models\" />
     <Folder Include="Data\" />
     <Folder Include="wwwroot\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
