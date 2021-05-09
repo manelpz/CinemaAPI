@@ -6,6 +6,8 @@ namespace CinemaAPI.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
+
             migrationBuilder.CreateTable(
                 name: "Movies",
                 columns: table => new
