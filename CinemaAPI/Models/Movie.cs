@@ -26,7 +26,7 @@ namespace CinemaAPI.Models
         [NotMapped]
         public IFormFile Image { get; set; }
 
-        
+        public ICollection<Reservation> Reservations { get; set; }
 
     }
 }

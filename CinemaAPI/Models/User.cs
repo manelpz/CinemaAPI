@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace CinemaAPI.Models
 {
     public class User
@@ -8,6 +10,8 @@ namespace CinemaAPI.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+
+        public ICollection<Reservation> Reservations { get; set; }
         
     }
 }
