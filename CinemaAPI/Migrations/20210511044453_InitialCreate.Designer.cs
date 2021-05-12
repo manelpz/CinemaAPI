@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaAPI.Migrations
 {
     [DbContext(typeof(CinemaDBContext))]
-    [Migration("20210506212720_InitialCreate")]
+    [Migration("20210511044453_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,14 +27,11 @@ namespace CinemaAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Language")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

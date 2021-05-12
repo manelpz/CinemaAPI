@@ -12,7 +12,7 @@ namespace CinemaAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Language { get; set; }
+        /*public string Language { get; set; }
         public string Duration { get; set; }
         public DateTime PlayingDate { get; set; }
         public DateTime PlayingTime { get; set; }
@@ -24,9 +24,9 @@ namespace CinemaAPI.Models
         public string ImageUrl { get; set; }
 
         [NotMapped]
-        public IFormFile Image { get; set; }
+        public IFormFile Image { get; set; }*/
 
-        public ICollection<Reservation> Reservations { get; set; }
+        /*public ICollection<Reservation> Reservations { get; set; }*/
 
     }
 }
