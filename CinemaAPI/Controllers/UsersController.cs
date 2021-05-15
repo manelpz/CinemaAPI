@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticationPlugin;
 using CinemaAPI.Data;
 using CinemaAPI.Models;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +34,7 @@ namespace CinemaAPI.Controllers
             var userObj = new User {
                 Name = user.Name,
                 Email = user.Email,
-                Password = user.Password,
+                Password = SecurePasswordHasherHelper.Hash(user.Password),
                 Role = "Users"
             };
 
