@@ -15,16 +15,17 @@ namespace CinemaAPI.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            return "Hello from the user side";
         }
 
         // GET api/values/5
+        [Authorize(Roles = "ADmin")]
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "Hello from the admin side";
         }
 
         // POST api/values
