@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CinemaAPI.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles ="User")]
     public class SamplesController : Controller
     {
         // GET: api/values
@@ -21,7 +21,7 @@ namespace CinemaAPI.Controllers
         }
 
         // GET api/values/5
-        [Authorize(Roles = "ADmin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public string Get(int id)
         {
