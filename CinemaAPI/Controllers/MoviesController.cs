@@ -85,7 +85,23 @@ namespace CinemaAPI.Controllers
             }
         }
 
-
+        // DELETE api/values/5
+        [Authorize(Roles ="Admin")]
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var movie = _dbContext.Movies.Find(id);
+            if (movie == null)
+            {
+                return NotFound("No record found against this id");
+            }
+            else
+            {
+                _dbContext.Movies.Remove(movie);
+                _dbContext.SaveChanges();
+                return Ok("Record deleted");
+            }
+        }
 
     }
 }

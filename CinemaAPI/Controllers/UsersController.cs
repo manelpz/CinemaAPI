@@ -83,9 +83,9 @@ namespace CinemaAPI.Controllers
                 expiration_Time = token.ValidTo,
                 user_id = userEmail.Id
             });
-
-
         }
+
+
 
 
     }
