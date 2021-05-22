@@ -71,8 +71,14 @@ namespace CinemaAPI.Controllers
                 }
 
                 movie.Name = movieObj.Name;
+                movie.Description = movieObj.Description;
                 movie.Language = movieObj.Language;
+                movie.Duration = movieObj.Duration;
+                movie.PlayingDate = movieObj.PlayingDate;
+                movie.PlayingTime = movieObj.PlayingTime;
                 movie.Rating = movieObj.Rating;
+                movie.Genre = movieObj.Genre;
+                movie.TrailorUrl = movieObj.TrailorUrl;
                 _dbContext.SaveChanges();
                 return Ok("Record updated succefully");
             }
