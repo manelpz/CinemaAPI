@@ -46,7 +46,7 @@ namespace CinemaAPI.Controllers
         }
 
         // PUT api/values/5
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromForm] Movie movieObj)
         {
@@ -79,6 +79,7 @@ namespace CinemaAPI.Controllers
                 movie.Rating = movieObj.Rating;
                 movie.Genre = movieObj.Genre;
                 movie.TrailorUrl = movieObj.TrailorUrl;
+                movie.TicketPrice = movieObj.TicketPrice;
                 _dbContext.SaveChanges();
                 return Ok("Record updated succefully");
             }
