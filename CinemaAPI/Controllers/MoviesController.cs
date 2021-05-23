@@ -103,5 +103,38 @@ namespace CinemaAPI.Controllers
             }
         }
 
+        //GET ALL 
+        [Authorize]
+        [HttpGet("[Action]")]
+
+        public IActionResult AllMovies()
+        {
+            var movies = from movie in _dbContext.Movies
+                         select new
+                         {
+                             Id = movie.Id,
+                             Name = movie.Name,
+                             Duration = movie.Duration,
+                             Language = movie.Language,
+                             Rating = movie.Rating,
+                             Genre = movie.Genre,
+                             ImageUrl = movie.ImageUrl
+                         };
+            return Ok(movies);
+        }
+
+
+        //GET DETAIL
+        [Authorize]
+        [HttpGet("[Action]/{id}")]
+        public IActionResult MovieDetail(int id) {
+            var movie = _dbContext.Movies.Find(id);
+
+            if (movie == null) {
+                return NotFound();
+            }
+
+            return Ok(movie);
+        }
     }
 }
