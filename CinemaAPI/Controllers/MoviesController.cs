@@ -107,8 +107,11 @@ namespace CinemaAPI.Controllers
         [Authorize]
         [HttpGet("[Action]")]
 
-        public IActionResult AllMovies(string sort)
+        public IActionResult AllMovies(string sort, int? pageNumber, int? pageSize)
         {
+            var currentPageNumber = pageNumber ?? 1;
+            var currentPageSize = pageSize ?? 5;
+
             var movies = from movie in _dbContext.Movies
                          select new
                          {
@@ -124,13 +127,30 @@ namespace CinemaAPI.Controllers
 
             switch (sort) {
                 case "desc":
-                    return Ok(movies.OrderByDescending(m=>m.Rating));
+                    return Ok(movies.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).OrderByDescending(m=>m.Rating));
                 case "asc":
-                    return Ok(movies.OrderBy(m => m.Rating));
+                    return Ok(movies.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).OrderBy(m => m.Rating));
                 default:
-                    return Ok(movies);
+                    return Ok(movies.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize));
             }
 
+        }
+
+        //GET SEARCH
+
+        [Authorize]
+        [HttpGet("[Action]")]
+        public IActionResult FindMovies(string movieName) {
+
+            var movies = from movie in _dbContext.Movies
+                         where movie.Name.StartsWith(movieName)
+                         select new
+                         {
+                             Id = movie.Id,
+                             Name = movie.Name,
+                             ImageUrl = movie.ImageUrl
+                         };
+            return Ok(movies);
         }
 
 
