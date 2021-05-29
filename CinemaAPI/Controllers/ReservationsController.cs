@@ -21,6 +21,7 @@ namespace CinemaAPI.Controllers
             _dbContext = dbContext;
         }
 
+
         [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] Reservation reservationObj) {
