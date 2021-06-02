@@ -137,7 +137,6 @@ namespace CinemaAPI.Controllers
         }
 
         //GET SEARCH
-
         [Authorize]
         [HttpGet("[Action]")]
         public IActionResult FindMovies(string movieName) {
