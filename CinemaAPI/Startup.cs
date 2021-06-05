@@ -35,7 +35,6 @@ namespace CinemaAPI
             services.AddDbContext<CinemaDBContext>(option =>
             option.UseSqlServer(@"Data Source=localhost,1433;Initial Catalog=CinemaDB;User Id=SA;Password=MiPassw0rd!1521;Integrated Security=false"));
 
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
