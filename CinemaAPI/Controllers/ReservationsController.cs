@@ -23,14 +23,16 @@ namespace CinemaAPI.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Post([FromBody] Reservation reservationObj) {
+        public IActionResult Post([FromBody] Reservation reservationObj)
+        {
 
+            reservationObj.ReservationTime = DateTime.Now;
             _dbContext.Reservations.Add(reservationObj);
             _dbContext.SaveChanges();
 
             return StatusCode(StatusCodes.Status201Created);
-        }
-        
+
+        }       
 
     }
 }
