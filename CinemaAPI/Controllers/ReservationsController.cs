@@ -32,7 +32,24 @@ namespace CinemaAPI.Controllers
 
             return StatusCode(StatusCodes.Status201Created);
 
-        }       
+        }
+
+        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = 'Users')]
+        [HttpGet]
+        public IActionResult GetReservations()
+        {
+            var reservations = from reservation in _dbContext.Reservations
+                               join customer in _dbContext.Users on reservation.UserId equals customer.Id
+                               join movie in _dbContext.Movies on reservation.MovieId equals movie.Id
+                               select new {
+                                   Id = reservation.Id,
+                                   ReservationTime = reservation.ReservationTime,
+                                   CustomerName = customer.Id,
+                                   MovieName = movie.Name
+                               };
+            return Ok(reservations);
+        }
 
     }
 }
