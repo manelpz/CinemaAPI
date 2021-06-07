@@ -7,7 +7,7 @@
 
 ***
 
-### deployment link 
+### Deployment link 
 
 Deployment link on [Azure](https://mycinemaapirestful.azurewebsites.net/)
 
