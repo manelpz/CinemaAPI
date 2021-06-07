@@ -27,14 +27,19 @@ namespace CinemaAPI
 
         public IConfiguration Configuration { get; }
 
+       
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddDbContext<CinemaDBContext>(option =>
+            //Configuration.GetConnectionString("CinemaDbConnection"));
             //option.UseSqlServer(@"Data Source=localhost,1433;Initial Catalog=CinemaDB;User Id=SA;Password=MiPassw0rd!1521;Integrated Security=false"));
-            Configuration.GetConnectionString("CinemaDbConnection"));
+            option.UseSqlServer(Configuration.GetConnectionString("CinemaDbConnection")));
+
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
