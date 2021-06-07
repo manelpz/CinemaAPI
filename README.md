@@ -23,3 +23,4 @@ Documentation API link: [Documentation](https://documenter.getpostman.com/view/1
 
 ![EndPoints](https://user-images.githubusercontent.com/2387874/121079988-7796d300-c7a0-11eb-811a-f7efa4d3d494.png)
 
+![API](https://user-images.githubusercontent.com/2387874/121086593-f8f26380-c7a8-11eb-8f66-192a8ac7f118.png)
