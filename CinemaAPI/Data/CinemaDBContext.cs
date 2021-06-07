@@ -6,6 +6,7 @@ namespace CinemaAPI.Data
 {
     public class CinemaDBContext: DbContext
     {
+
         public CinemaDBContext(DbContextOptions<CinemaDBContext> options) : base(options)
         {
 
