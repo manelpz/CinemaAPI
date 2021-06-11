@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 using CinemaAPI.Data;
 using CinemaAPI.Models;
 using Microsoft.AspNetCore.Authorization;
