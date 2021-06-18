@@ -9,7 +9,7 @@
 
 ### Deployment link 
 
-Deployment link on [Azure](https://mycinemaapirestful.azurewebsites.net/)
+Deployment link on [Azure](https://mycinemaapirestful.azurewebsites.net/) (Currently offline)
 
 ***
 ### Documentation
