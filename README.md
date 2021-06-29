@@ -5,7 +5,7 @@
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
 ![example event parameter](https://img.shields.io/apm/l/.netcoreapi?style=plastic)
 
-Exercise from the Udemy course ![learn restful apis with aspnet core 5](https://www.udemy.com/course/learn-restful-apis-with-aspnet-core-5/)
+Exercise from the Udemy course [learn restful apis with aspnet core 5](https://www.udemy.com/course/learn-restful-apis-with-aspnet-core-5/)
 
 ***
 
